@@ -18,7 +18,7 @@ CORS(app, resources={ r'/*': {'origins': config['ORIGINS']}}, supports_credentia
 
 @app.route('/', methods=['GET'])
 def home():
-	return 'Vimlesh Kumar'
+	return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
 
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
 def inputData():
@@ -58,7 +58,7 @@ def inputData():
 		#	print(data[i])
 		return jsonify(data)
 	else:
-		return'Form'
+		return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
 
 if __name__ == '__main__':
     app.run(debug=True)
