@@ -8,8 +8,7 @@ from tensorflow.keras.optimizers import Adam
 
 config = {
   'ORIGINS': [
-    'http://localhost:3000', 
-    'http://127.0.0.1:3000',  
+    'https://crop-yield-prediction-adbc8.web.app/', 
   ],
   'SECRET_KEY': '...'
 }
