@@ -14,12 +14,12 @@ config = {
 }
 
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='build')
 CORS(app, resources={ r'/*': {'origins': config['ORIGINS']}}, supports_credentials=True)
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def home():
-	return "Hello from Heroku Flask Server"
+	return render_template('index.html')
 
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
 def inputData():
