@@ -6,15 +6,9 @@ from tensorflow import keras
 from tensorflow.keras.models import load_model,model_from_json
 from tensorflow.keras.optimizers import Adam
 
-config = {
-  'ORIGINS': [
-    'https://crop-yield-prediction-adbc8.web.app', 
-  ],
-  'SECRET_KEY': '...'
-}
 
 app = Flask(__name__,template_folder='react')
-CORS(app, resources={ r'/*': {'origins': config['ORIGINS']}}, supports_credentials=True)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/', methods=['GET'])
 def home():
@@ -61,4 +55,4 @@ def inputData():
 		return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
 
 if __name__ == '__main__':
-    app.run(debug=True,port='5000')
+    app.run(debug=True,threaded=True)
