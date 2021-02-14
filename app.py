@@ -8,11 +8,11 @@ from tensorflow.keras.optimizers import Adam
 
 
 app = Flask(__name__,template_folder='react')
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/', methods=['GET'])
 def home():
-	return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
+	return "Hello from Heroku Flask Server"
 
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
 def inputData():
