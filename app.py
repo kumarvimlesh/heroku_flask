@@ -8,7 +8,7 @@ from tensorflow.keras.optimizers import Adam
 
 config = {
   'ORIGINS': [
-    'https://crop-yield-prediction-adbc8.web.app/', 
+    'https://crop-yield-prediction-adbc8.web.app', 
   ],
   'SECRET_KEY': '...'
 }
@@ -61,4 +61,4 @@ def inputData():
 		return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port='5000')
