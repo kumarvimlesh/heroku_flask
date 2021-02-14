@@ -19,7 +19,7 @@ CORS(app, resources={ r'/*': {'origins': config['ORIGINS']}}, supports_credentia
 
 @app.route('/', methods=['GET'])
 def home():
-	return render_template('index.html')
+	return 'this is home'
 
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
 def inputData():
