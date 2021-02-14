@@ -10,7 +10,7 @@ from tensorflow.keras.optimizers import Adam
 app = Flask(__name__,template_folder='react')
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def home():
 	return "Hello from Heroku Flask Server"
 
