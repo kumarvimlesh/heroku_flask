@@ -6,16 +6,16 @@ from tensorflow import keras
 from tensorflow.keras.models import load_model,model_from_json
 from tensorflow.keras.optimizers import Adam
 
-config = {
+'''config = {
   'ORIGINS': [
     'https://cyp-react.herokuapp.com/',
   ],
   'SECRET_KEY': '...'
-}
+}'''
 
 
 app = Flask(__name__,template_folder='build')
-CORS(app, resources={ r'/*': {'origins': config['ORIGINS']}}, supports_credentials=True)
+#CORS(app, resources={ r'/*': {'origins': config['ORIGINS']}}, supports_credentials=True)
 
 @app.route('/', methods=['GET'])
 def home():
