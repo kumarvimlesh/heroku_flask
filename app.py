@@ -45,8 +45,8 @@ def inputData():
 
 
 		#model
-		model_json = open("model.json", "rb").read()
-		model = model_from_json(model_json)
+		#model_json = open("model.json", "rb").read()
+		#model = model_from_json(model_json)
  
 		#model.load_weights(data['weightFilePath'])
 		model=load_model(data['weightFilePath'])
