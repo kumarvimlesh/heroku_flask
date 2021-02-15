@@ -1,5 +1,5 @@
 from flask import Flask,render_template,redirect, request, jsonify, json
-from flask_cors import CORS
+from flask_cors import CORS,cross_origin
 import pandas as pd
 import numpy as np
 from tensorflow import keras
@@ -24,7 +24,9 @@ def home():
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
 @cross_origin()
 def inputData():
-	if request.method=='POST':
+	if request.method=='OPTIONS':
+		return option_response()
+	elif request.method=='POST':
 		print("In the Server")
 		data=request.json
 		print(data)
@@ -58,9 +60,18 @@ def inputData():
 		print("Ready to send response")
 		#for i in range(len(data)):
 		#	print(data[i])
-		return jsonify(data)
+		data=jsonify(data)
+		data.headers.add("Access-Control-Allow-Origin", "*")
+		return data
 	else:
 		return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
+
+def option_response():
+    response = make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add('Access-Control-Allow-Headers', "*")
+    response.headers.add('Access-Control-Allow-Methods', "*")
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
