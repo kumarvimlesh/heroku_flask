@@ -19,7 +19,7 @@ app = Flask(__name__,template_folder='build')
 
 @app.route('/', methods=['GET'])
 def home():
-	return 'this is home'
+	return 'this is homepage'
 
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
 @cross_origin()
@@ -60,7 +60,7 @@ def inputData():
 		print("Ready to send response")
 		#for i in range(len(data)):
 		#	print(data[i])
-		
+
 		return jsonify(data)
 	else:
 		return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
