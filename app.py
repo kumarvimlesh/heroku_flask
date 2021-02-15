@@ -22,6 +22,7 @@ def home():
 	return 'this is home'
 
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
+@cross_origin()
 def inputData():
 	if request.method=='POST':
 		print("In the Server")
