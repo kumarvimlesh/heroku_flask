@@ -60,9 +60,8 @@ def inputData():
 		print("Ready to send response")
 		#for i in range(len(data)):
 		#	print(data[i])
-		data=jsonify(data)
-		data.headers.add("Access-Control-Allow-Origin", "*")
-		return data
+		
+		return jsonify(data)
 	else:
 		return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
 
