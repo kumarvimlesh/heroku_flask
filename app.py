@@ -19,7 +19,7 @@ app = Flask(__name__,template_folder='build')
 
 @app.route('/', methods=['GET'])
 def home():
-	return 'this is homepage'
+	return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
 
 @app.route('/inputData',methods=['POST','GET','OPTIONS'])
 @cross_origin()
@@ -51,8 +51,8 @@ def inputData():
 		model.load_weights(data['weightFilePath'])
 		print(model)
 		print("Loaded model from disk")
-		model.compile(loss='mse', optimizer='adam', metrics=['accuracy'])
-		output=model.predict(userInput,steps=1,batch_size=1)
+		model.compile(optimizer='adam', loss='mse', metrics=[keras.metrics.MeanAbsoluteError()])
+		output=model.predict(userInput)
 		print("\nResult  = ",output[0][0])
 
 		data['result']=str(output[0][0])
@@ -63,7 +63,7 @@ def inputData():
 
 		return jsonify(data)
 	else:
-		return redirect("https://kumarvimlesh.github.io/Crop-Yield-Prediction/")
+		return redirect("https://crop-yield-prediction-4e988.web.app/")
 
 def option_response():
     response = make_response()
